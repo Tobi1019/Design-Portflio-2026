@@ -34,12 +34,13 @@
 }
 
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
+html{scroll-behavior:smooth;overflow-x:hidden;max-width:100%;}
 body{
   background:#000000;
   color:var(--text);
   font-family:'Poppins',sans-serif;
   overflow-x:hidden;
+  max-width:100%;
   -webkit-text-size-adjust:100%;
 }
 body::after{
@@ -1295,6 +1296,8 @@ footer{
   /* Brand bento */
   .brand-hero-panel{padding:28px 22px 24px;gap:16px 24px;}
   .brand-meta-row{grid-template-columns:1fr 1fr;padding-top:16px;}
+  .brand-bento-wrap{padding:8px;}
+  .bento-v2{margin:0;}
   .bento-grid{
     grid-template-columns:1fr 1fr;
     grid-template-rows:auto;
@@ -1332,7 +1335,6 @@ footer{
     max-width:220px;
     align-self:center;
   }
-  }
   .analytics-panel{width:100%;}
   .monthly-grid{grid-template-columns:repeat(4,1fr);gap:4px;}
   .month-cell{padding:7px 5px;}
@@ -1355,6 +1357,7 @@ footer{
     gap:12px;
   }
   .footer-links{gap:16px;}
+}
 
 /* ═══════════════════════════════════════
    RESPONSIVE — SMALL MOBILE (max 480px)
@@ -1392,18 +1395,28 @@ footer{
   /* Brand */
   .brand-hero-panel{padding:20px 16px;}
   .brand-meta-row{grid-template-columns:1fr 1fr;gap:12px;}
-  .bento-grid{padding:10px;gap:4px;}
+  .brand-bento-wrap{padding:6px;}
+  .bento-grid{padding:6px;gap:4px;}
   .bento-col-1-2-row-1-2{min-height:140px;}
   .bento-col-3-5-row-2-3{min-height:150px;}
-  .bento-v2{margin:10px;gap:4px;grid-template-columns:1.4fr 1fr 1fr;grid-template-rows:160px 140px 140px;}
-  .bv2-hero{grid-row:1/3;}
-  .bv2-swatch-grid{grid-column:2/3;}
-  .bv2-semi-r1{grid-column:3/4;grid-row:1/2;}
-  .bv2-semi-r2{display:none;}
-  .bv2-semi-r3{grid-column:2/3;grid-row:2/3;}
-  .bv2-semi-r4{display:none;}
-  .bv2-wide{grid-column:2/4;grid-row:3/4;}
-  .bv2-hero{grid-row:1/3;}
+  /* Bento v2 — clean 2-col stack for small phones */
+  .bento-v2{
+    margin:0;
+    gap:4px;
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:180px 100px 100px 100px 100px;
+  }
+  .bv2-hero{grid-column:1/3;grid-row:1/2;}
+  .bv2-swatch-grid{
+    grid-column:1/3;grid-row:2/3;
+    grid-template-columns:1fr 1fr 1fr 1fr;
+    grid-template-rows:1fr;
+  }
+  .bv2-semi-r1{grid-column:1/2;grid-row:3/4;}
+  .bv2-semi-r2{grid-column:2/3;grid-row:3/4;}
+  .bv2-semi-r3{grid-column:1/2;grid-row:4/5;}
+  .bv2-semi-r4{grid-column:2/3;grid-row:4/5;}
+  .bv2-wide{grid-column:1/3;grid-row:5/6;}
 
   /* Project */
   .proj-left{padding:24px 16px;}
@@ -1435,6 +1448,20 @@ footer{
 ::-webkit-scrollbar-track { background: #000; }
 ::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
 ::-webkit-scrollbar-thumb:hover { background: #555; }
+
+/* Mobile horizontal scroll fix */
+@media(max-width:768px){
+  section,div,.brand-section,.about-section,.about-grid,
+  .logofolio-wrap,.project-section,.social-section,
+  .testi-section,.contact-wrap,footer{
+    max-width:100vw;
+    overflow-x:hidden;
+  }
+  .hero-title-block{
+    overflow:hidden;
+    white-space:nowrap;
+  }
+}
 
 .pill-row .ipill {
   background: transparent;
@@ -1480,8 +1507,8 @@ footer{
 <!-- ═══ HERO / PORTFOLIO TITLE ═══ -->
 <section id="top" class="hero-section">
   <div class="hero-topbar">
-    <div class="hero-byline">by <strong>TOBI WILLIAMS</strong></div>
-    <div class="hero-copy">© 2026 · ALL RIGHTS RESERVED</div>
+    <div class="hero-byline"> <strong></strong></div>
+    <div class="hero-copy">D</div>
   </div>
   <div class="hero-title-block">
     <span class="hero-portfolio">Portfolio</span>
@@ -1662,6 +1689,56 @@ footer{
     <div class="sec-divider-sub">Visual Identity · Brand Systems · 2025 – 2026</div>
   </div>
 </div>
+<!-- ═══ BRAND: EDITORIAL & VISUAL ═══ -->
+<div class="brand-section reveal">
+  <div class="brand-hero-panel">
+    <div class="brand-hero-left">
+      <div class="brand-title-block">
+        <h2 class="brand-title bubloo-title" style="font-size:clamp(3rem,7vw,6.5rem);line-height:0.9;letter-spacing:0;">Bubloo Kids</h2>
+      </div>
+      <div class="brand-meta-row">
+        <div class="brand-meta-col">
+          <div class="brand-meta-label">Services</div>
+          <div class="brand-meta-val">Brand & Visual Identity</div>
+        </div>
+        <div class="brand-meta-col">
+          <div class="brand-meta-label">Industry</div>
+          <div class="brand-meta-val">Children's Skincare</div>
+        </div>
+        <div class="brand-meta-col">
+          <div class="brand-meta-label">Year</div>
+          <div class="brand-meta-val">2026</div>
+        </div>
+      </div>
+      <div class="brand-desc-block">
+        <p class="brand-desc">Bubloo Kids is a premium children's skincare brand designed to transform routine hygiene into a playful, high-end experience. It bridges the gap between gentle, child-friendly products and a sophisticated aesthetic that appeals to modern, design-conscious parents.</p>
+        <span class="brand-tag">Portfolio – Brand Identity & Packaging</span>
+        <a href="https://www.behance.net/gallery/247556629/Bubloo-Kids-Brand-Identity-Packaging-Design" target="_blank" class="behance-btn">View on Behance</a>
+      </div>
+    </div>
+    <div class="brand-hero-image">
+      <img src="bubloo-all.jpg" alt="Bubloo Kids brand" onerror="this.parentElement.innerHTML='<div class=\'brand-hero-image-placeholder\'>Project Image</div>'"/>
+    </div>
+  </div>
+  <div class="brand-bento-wrap">
+    <div class="bento-v2" style="background:#0a0a0a;">
+      <div class="bv2-hero"><img src="girl.jpg"alt="Bubloo Kids brand spread" onerror="this.style.display='none';this.parentElement.style.background='#D5D5D5'"/></div>
+      <div class="bv2-swatch-grid">
+        <div class="bv2-semi" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center;"><img src="1.png" alt=""></div>
+                <div class="bv2-semi" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center;"><img src="2.png" alt=""></div>
+        <div class="bv2-semi" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center;"><img src="3.png" alt=""></div>
+        <div class="bv2-semi" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center;"><img src="4.png" alt=""></div>
+
+      </div>
+      <div class="bv2-semi bv2-semi-r1"><img src="ba.png" alt="Bubloo purple bottle" onerror="this.style.display='none';this.parentElement.style.background='#D0D0D0'"/></div>
+      <div class="bv2-semi bv2-semi-r2"><img src="bo.png" alt="Bubloo pink bottle" onerror="this.style.display='none';this.parentElement.style.background='#C8C8C8'"/></div>
+      <div class="bv2-semi bv2-semi-r3"><img src="bubloo-sideview-purple.jpg" alt="Bubloo straight" onerror="this.style.display='none';this.parentElement.style.background='#BEBEBE'"/></div>
+      <div class="bv2-semi bv2-semi-r4" style="background:#1e1e1e;display:flex;align-items:center;justify-content:center;">
+       <img src="caed.png" alt=""></div>
+      <div class="bv2-wide"><img src="htt2.png" alt="Bubloo packaging spread" onerror="this.style.display='none';this.parentElement.style.background='#C5C5C5'"/></div>
+    </div>
+  </div>
+</div>
 
 <!-- ═══ BRAND: DW ARC ═══ -->
 <div class="brand-section reveal">
@@ -1724,7 +1801,7 @@ footer{
   <div class="brand-hero-panel">
     <div class="brand-hero-left">
       <div class="brand-title-block">
-        <h2 class="brand-title">KROMA</h2>
+        <h2 class="brand-title">KROMA - IN PROGRESS</h2>
       </div>
       <div class="brand-meta-row">
         <div class="brand-meta-col">
@@ -1770,56 +1847,7 @@ footer{
   </div>
 </div>
 
-<!-- ═══ BRAND: EDITORIAL & VISUAL ═══ -->
-<div class="brand-section reveal">
-  <div class="brand-hero-panel">
-    <div class="brand-hero-left">
-      <div class="brand-title-block">
-        <h2 class="brand-title bubloo-title" style="font-size:clamp(3rem,7vw,6.5rem);line-height:0.9;letter-spacing:0;">Bubloo Kids</h2>
-      </div>
-      <div class="brand-meta-row">
-        <div class="brand-meta-col">
-          <div class="brand-meta-label">Services</div>
-          <div class="brand-meta-val">Brand & Visual Identity</div>
-        </div>
-        <div class="brand-meta-col">
-          <div class="brand-meta-label">Industry</div>
-          <div class="brand-meta-val">Children's Skincare</div>
-        </div>
-        <div class="brand-meta-col">
-          <div class="brand-meta-label">Year</div>
-          <div class="brand-meta-val">2026</div>
-        </div>
-      </div>
-      <div class="brand-desc-block">
-        <p class="brand-desc">Bubloo Kids is a premium children's skincare brand designed to transform routine hygiene into a playful, high-end experience. It bridges the gap between gentle, child-friendly products and a sophisticated aesthetic that appeals to modern, design-conscious parents.</p>
-        <span class="brand-tag">Portfolio – Brand Identity & Packaging</span>
-        <a href="https://www.behance.net/gallery/247556629/Bubloo-Kids-Brand-Identity-Packaging-Design" target="_blank" class="behance-btn">View on Behance</a>
-      </div>
-    </div>
-    <div class="brand-hero-image">
-      <img src="bubloo-all.jpg" alt="Bubloo Kids brand" onerror="this.parentElement.innerHTML='<div class=\'brand-hero-image-placeholder\'>Project Image</div>'"/>
-    </div>
-  </div>
-  <div class="brand-bento-wrap">
-    <div class="bento-v2" style="background:#0a0a0a;">
-      <div class="bv2-hero"><img src="girl.jpg"alt="Bubloo Kids brand spread" onerror="this.style.display='none';this.parentElement.style.background='#D5D5D5'"/></div>
-      <div class="bv2-swatch-grid">
-        <div class="bv2-semi" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center;"><img src="1.png" alt=""></div>
-                <div class="bv2-semi" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center;"><img src="2.png" alt=""></div>
-        <div class="bv2-semi" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center;"><img src="3.png" alt=""></div>
-        <div class="bv2-semi" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center;"><img src="4.png" alt=""></div>
 
-      </div>
-      <div class="bv2-semi bv2-semi-r1"><img src="ba.png" alt="Bubloo purple bottle" onerror="this.style.display='none';this.parentElement.style.background='#D0D0D0'"/></div>
-      <div class="bv2-semi bv2-semi-r2"><img src="bo.png" alt="Bubloo pink bottle" onerror="this.style.display='none';this.parentElement.style.background='#C8C8C8'"/></div>
-      <div class="bv2-semi bv2-semi-r3"><img src="bubloo-sideview-purple.jpg" alt="Bubloo straight" onerror="this.style.display='none';this.parentElement.style.background='#BEBEBE'"/></div>
-      <div class="bv2-semi bv2-semi-r4" style="background:#1e1e1e;display:flex;align-items:center;justify-content:center;">
-       <img src="caed.png" alt=""></div>
-      <div class="bv2-wide"><img src="htt2.png" alt="Bubloo packaging spread" onerror="this.style.display='none';this.parentElement.style.background='#C5C5C5'"/></div>
-    </div>
-  </div>
-</div>
 
 <!-- ═══ DIVIDER: FLYER & POSTER ═══ -->
 <div class="sec-divider sd-purple">
@@ -2162,6 +2190,23 @@ footer{
     mx=e.clientX;my=e.clientY;
     dot.style.left=mx+'px';dot.style.top=my+'px';
   });
+  document.addEventListener('touchmove',e=>{
+    const t=e.touches[0];
+    mx=t.clientX;my=t.clientY;
+    dot.style.left=mx+'px';dot.style.top=my+'px';
+    dot.style.opacity='1';ring.style.opacity='1';
+  },{passive:true});
+  document.addEventListener('touchstart',e=>{
+    const t=e.touches[0];
+    mx=t.clientX;my=t.clientY;
+    dot.style.left=mx+'px';dot.style.top=my+'px';
+    dot.style.opacity='1';ring.style.opacity='1';
+  },{passive:true});
+  document.addEventListener('touchend',()=>{
+    setTimeout(()=>{dot.style.opacity='0';ring.style.opacity='0';},600);
+  });
+  /* Hide cursor elements initially on touch devices */
+  if('ontouchstart' in window){dot.style.opacity='0';ring.style.opacity='0';}
   function animRing(){
     rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;
     ring.style.left=rx+'px';ring.style.top=ry+'px';
